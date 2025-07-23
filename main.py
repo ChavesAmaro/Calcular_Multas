@@ -25,3 +25,12 @@ def multa_auto_estrada(velocidade):
         return 360
     else:
         return 0
+    
+def menu():
+    print("Tipo de Estrada")
+    print("1 - Localidade")
+    print("2 - Fora de Localidade")
+    print("3 - Auto Estrada")
+    print("0 - Sair")
+    
+
