@@ -27,7 +27,7 @@ def multa_auto_estrada(velocidade):
         return 0
     
 def menu():
-    print("Tipo de Estrada")
+    print("\nTipo de Estrada")
     print("1 - Localidade")
     print("2 - Fora de Localidade")
     print("3 - Auto Estrada")
@@ -43,8 +43,11 @@ def main():
             loop2 = True
             while loop2 == True:
                 try:
-                    velocidade = int(input("Introduza a velocidade do veículo (km/h)"))
-                    loop2 = False
+                    velocidade = int(input("Introduza a velocidade do veículo (km/h):\n"))
+                    if velocidade < 0:
+                        print("\nErro! Introduza uma velocidade positiva.")
+                    else:
+                        loop2 = False
                 except ValueError:
                     print("Erro! Introduza um valor inteiro para a velocidade!")
             if escolha == "1":
@@ -58,20 +61,20 @@ def main():
                 estrada = "numa auto estrada"
                     
         elif escolha == "0":
-            print("A encerrar o programa...")
+            print("\nA encerrar o programa...")
             loop = False
             continue
         else:
-            print("Erro! Opção inválida escolha um número de 0 a 3")
+            print("\nErro! Opção inválida escolha um número de 0 a 3")
             continue
 
             
-        print(f"O veículo seguia a {velocidade} km/h {estrada}.")
+        print(f"\nO veículo seguia a {velocidade} km/h {estrada}.")
         
         if multa == 0:
-            print("O condutor não tem de pagar multa.")
+            print("\nO condutor não tem de pagar multa.")
         else:
-            print(f"O condutor tem de pagar uma multa de {multa}€")
+            print(f"\nO condutor tem de pagar uma multa de {multa}€\n")
 
 
 if __name__ == "__main__":
