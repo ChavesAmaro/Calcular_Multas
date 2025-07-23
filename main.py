@@ -39,24 +39,32 @@ def main():
         menu()
         escolha = input("Escolha o tipo de estrada (0 a 3):\n")
         
-        if escolha == "0":
+        if escolha == "1" or escolha == "2" or escolha == "3":
+            loop2 = True
+            while loop2 == True:
+                try:
+                    velocidade = int(input("Introduza a velocidade do veículo (km/h)"))
+                    loop2 = False
+                except ValueError:
+                    print("Erro! Introduza um valor inteiro para a velocidade!")
+            if escolha == "1":
+                multa = multa_localidade(velocidade)
+                estrada = "numa localidade"
+            elif escolha == "2":
+                multa = multa_fora_da_localidade(velocidade)
+                estrada = "fora da localidade"
+            elif escolha == "3":
+                multa = multa_auto_estrada(velocidade)
+                estrada = "numa auto estrada"
+                    
+        elif escolha == "0":
             print("A encerrar o programa...")
             loop = False
             continue
-        velocidade = int(input("Introduza a velocidade do veículo (km/h)"))
-        
-        if escolha == "1":
-            multa = multa_localidade(velocidade)
-            estrada = "Numa Localidade"
-        elif escolha == "2":
-            multa = multa_fora_da_localidade(velocidade)
-            estrada = "Fora da Localidade"
-        elif escolha == "3":
-            multa = multa_auto_estrada(velocidade)
-            estrada = "Numa Auto Estrada"
         else:
             print("Erro! Opção inválida escolha um número de 0 a 3")
             continue
+
             
         print(f"O veículo seguia a {velocidade} km/h {estrada}.")
         
